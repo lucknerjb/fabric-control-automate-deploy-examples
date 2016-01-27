@@ -1,0 +1,19 @@
+from fabric.api import *
+
+# Fabric can help with annoying tasks such as having to tail logs
+
+@task
+def taillog(log, lines=50):
+    sudo('tail -%sf /var/log/%s' % (lines, log));
+
+# This setup function basically does what sethosts() did in the previous examples except that we call
+# it automatically every time we execute a fab task. This is a great way to bootstrap your fabfile.
+def setup():
+    env.user = 'luckner';
+    envHosts = env.hosts;
+    env.hosts = [];
+    for host in enumerate(envHosts):
+        fqdn = host[1] + '.vagrant';    # .vagrant is the extension for all my vagrant boxes
+        env.hosts.append(fqdn);
+
+setup();
