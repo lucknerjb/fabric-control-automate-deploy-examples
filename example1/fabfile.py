@@ -1,4 +1,4 @@
 from fabric.api import *
 
 def ls():
-    local('ls')
+    output = local('ls');

@@ -16,10 +16,6 @@ def disk_space(dir = ''):
     else:
         run('df -hP --total');
 
-@task
-def process(proc):
-    run('ps aux | grep %s' % proc);
-
 # This setup function basically does what sethosts() did in the previous examples except that we call
 # it automatically every time we execute a fab task. This is a great way to bootstrap your fabfile.
 def setup():

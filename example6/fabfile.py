@@ -5,11 +5,14 @@ from fabric.api import *
 # to do this but this is how I've accomplished this using command arguments
 # fab sethosts:{host1,host2} uptime
 
-def sethosts(hosts):
-    env.user = 'luckner'
-    for host in enumerate(hosts.split(' ')):
-        fqdn = host[1] + '.vagrant';    # .vagrant is the extension for all my vagrant boxes
-        env.hosts.append(fqdn);
+env.user = 'luckner'
 
-def uptime():
-    run('uptime');
+def sethosts(hosts):
+	for host in enumerate(hosts.split(' ')):
+		fqdn = host[1] + '.vagrant';    # .vagrant is the extension for all my vagrant boxes
+		env.hosts.append(fqdn);
+
+	print env.hosts;
+
+def some_task():
+	print "Hello world";

@@ -1,0 +1,9 @@
+Tonight, we'll be talking about this cool little Python library called Fabric. We'll be looking at what it is and what it isn't, how we can use it to control our infrastructure, automate day to day tasks and deploy applications. I don't have extensive experience with Fabric but feel free to ask any questions that you might have at the end and I'll do my best to answer!
+
+A little about myself: My name is Luckner and I work in Liberty Village as an Architect for a company called Uberflip. Our content marketing platform is geared toward marketers and allows them to streamline content management, accelerate lead generation and fuel marketing automation. I started at Uberflip as a Sr Developer but now my role is more on the architecture / ops side. I lead the overall architecture planning of our projects as well as build internal tools to make our lives easier and deal with the awesomness of being on on-call rotations as part of the ops team.
+
+Fabric is a library I came across while on one my tool-building endeavours. To quote the documentation, it's a "library and command-line tool for streamlining the use of SSH for application deployment or systems administration tasks". What it allows you to do, in a nutshell, is interact with any remote server as though you were locally on it.
+
+Fabric is mainly a tool that helps make running SSH commands easy, uploading and downloading files as well as prompting for input or aborting execution as needed. So, it's not an automation library or a deployment tool in itself but if you think about it, task automation and deployments really boil down to one thing: a suite of commands that are run to achieve a known state, which means that to a certain extent, Fabric can be the perfect tool for the job.
+
+So, let's jump right in and see how it's installed and how easy it is to get started with it.

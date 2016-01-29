@@ -5,7 +5,7 @@ from fabric.api import *
 # to set the hosts on the command line comes in handy.
 # fab -H {hosts} uptime
 
-env.user = 'luckner'
+env.user = 'luckner';
 
 def uptime():
     run('uptime');

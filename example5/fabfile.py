@@ -9,3 +9,6 @@ from fabric.api import *
 
 def hello(name):
     print("Hello %s" % name);
+
+def hello_age(name, age = 25):
+    print("Hello %s, you are %s years old" % (name, age));

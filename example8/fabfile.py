@@ -6,19 +6,19 @@ from fabric.api import *
 
 @task
 def service_start(service):
-    run('service %s start' % service);
+    sudo('service %s start' % service);
 
 @task
 def service_restart(service):
-    run('service %s restart' % service);
+    sudo('service %s restart' % service);
 
 @task
 def service_status(service):
-    run('service %s status' % service);
+    sudo('service %s status' % service);
 
 @task
 def service_stop(service):
-    run('service %s stop' % service);
+    sudo('service %s stop' % service);
 
 @task
 def service(service, command):

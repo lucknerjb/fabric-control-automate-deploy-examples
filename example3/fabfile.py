@@ -7,8 +7,8 @@ from fabric.api import *
 
 def sethosts():
     # host c7-1
-    env.hosts = ['c7-1.vagrant']
-    env.user = 'luckner'
+    env.hosts = ['c7-1.vagrant'];
+    env.user = 'luckner';
 
 def uptime():
     run('uptime');
