@@ -17,7 +17,7 @@ def upload(file, destination_path):
     Upload a file to the server
     """
     with cd(destination_path):
-        put('%s' % file, 'some_file', use_sudo=True);
+        put('%s' % file, 'some_file_temp', use_sudo=True);
 
 @task
 def download(file):

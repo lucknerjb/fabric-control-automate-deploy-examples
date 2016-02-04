@@ -5,6 +5,8 @@ from fabric.api import *
 # You can also pass in the -u argument to set the user to connect as
 # fab sethosts uptime
 
+#env.user = 'luckner';
+
 def sethosts():
     # host c7-1
     env.hosts = ['c7-1.vagrant'];

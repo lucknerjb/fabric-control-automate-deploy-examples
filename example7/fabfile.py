@@ -4,6 +4,9 @@ from fabric.api import *
 # is a task. As soon as you insert an @task notation, any function without it is no longer
 # accessible from the command line. Perfect for "private" commands
 
+env.user = 'luckner';
+env.hosts = ['c7-1.vagrant'];
+
 @task
 def public():
     print("This is a public command");

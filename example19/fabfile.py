@@ -6,6 +6,7 @@ import timeit
 # Users: user1 (some employee), deployer (a deploy user)
 
 env.user = 'luckner';
+#env.hosts = ['c7-2.vagrant'];
 env.hosts = ['c7-1.vagrant'];
 
 config_dict = {
@@ -25,7 +26,7 @@ config_dict = {
         'php'
     ],
     'mysql_rpm': 'mysql-community-release-el7-5.noarch.rpm',
-    'ssh_key': 'PLACE_SSH_KEY_HERE'
+    'ssh_key': ''
 };
 
 @task
@@ -67,9 +68,21 @@ def install_server():
     # Make sure all services are started
     start_services();
 
+    # Mark Server as bootstrap
+    create_bootstrap_file();
+
     stop = timeit.default_timer();
     total_time = stop - start;
     print 'Total Execution Time: ' + "{:.3f}".format(total_time)  + ' seconds';
+
+def create_bootstrap_file():
+    """
+    Create the "bootstrapped" file
+    """
+
+    outputHeaders('create_bootstrap_file');
+
+    sudo('touch %s' % config_dict['bootstrap_file_path']);
 
 def check_if_bootstrapped():
     """
@@ -148,7 +161,9 @@ def setup_mysql():
         'EOF'
     ];
 
-    sudo("\n".join(mysql_secure_install_cmd));
+    if config_dict['is_bootstrapped'] == False:
+		 sudo('service mysql start');
+		 sudo("\n".join(mysql_secure_install_cmd));
 
 def create_users():
     """
